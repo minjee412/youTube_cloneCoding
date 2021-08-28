@@ -1,0 +1,258 @@
+:root {
+  /* Color */
+  --white-color: #fff;
+  --black-color: #140a00;
+  --blue-color: #045fd4;
+  --red-color: #ff0000;
+  --grey-dark-color: #909090;
+  --grey-light-color: #e0e0e0;
+
+  /* Size */
+  --padding: 12px;
+  --avatar-size: 32px;
+
+  /* Font Size */
+  --font-large: 18px;
+  --font-medium: 14px;
+  --font-small: 12px;
+  --font-micro: 10px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+
+  /* padding 이나 마진을 줬을때 그것이 포함 되어 설정 되도록 하는 코드 */
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Roboto;
+}
+
+ul {
+  list-style: none;
+}
+
+/* 브라우저내에서 설정 되어 있는 button의 속성 값 없애기 */
+button,
+button:focus {
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background-color: var(--white-color);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--padding);
+  background-color: var(--black-color);
+  color: var(--white-color);
+}
+
+header .logo {
+  font-size: var(--font-large);
+}
+
+header .logo i {
+  color: var(--red-color);
+}
+
+header .icons .fa-search {
+  margin-right: var(--padding);
+}
+
+/* Video Player */
+
+.player {
+  text-align: center;
+  background-color: var(--black-color);
+  position: sticky;
+  top: 0;
+  /* position은 sticky 이지만 스크롤
+  내렸을때 어디에 sticky될 껀지 설정 */
+}
+
+.player video {
+  width: 100%;
+  height: 100%;
+  max-width: 500px;
+}
+
+.video_info {
+  padding: var(--padding);
+}
+
+.video_info .metadata .hashtags {
+  display: flex;
+  font-size: var(--font-small);
+  color: var(--blue-color);
+}
+
+.video_info .metadata .hashtags li {
+  margin-right: var(--padding);
+}
+
+.video_info .metadata .titleandButton {
+  display: flex;
+  justify-content: space-between;
+}
+
+.video_info .metadata .titleandButton .title {
+  font-size: var(--font-medium);
+  margin-right: var(--padding);
+}
+
+.video_info .metadata .titleandButton .title.clamp {
+  /* 1줄 이상 됐을때 ...으로 문장 숨기기 */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}
+
+.video_info .metadata .titleandButton .moreBtn {
+  height: 100%;
+  transition: transform 300ms ease-in-out;
+}
+
+.video_info .metadata .titleandButton .moreBtn.clicked {
+  transform: rotate(180deg);
+}
+
+.video_info .views {
+  font-size: var(--font-small);
+  color: var(--grey-dark-color);
+}
+
+.video_info .actions {
+  display: flex;
+  justify-content: space-around;
+  margin: var(--padding) 0;
+}
+
+.video_info .actions button {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--font-small);
+  color: var(--grey-dark-color);
+}
+
+.video_info .actions button i {
+  /* 아이콘들이 글자 보다 왼쪽으로 치우쳐져 있을때 */
+  margin: 0 auto;
+
+  /* 아래 마진이 원래 지정값의 1/2 만큼만 적용 */
+  margin-bottom: calc(var(--padding) / 2);
+  font-size: 16px;
+}
+
+/* active 되어 있는 아이들만 파란색으로 바뀐다. */
+.video_info .actions button i.active {
+  color: var(--blue-color);
+}
+
+.channel {
+  display: flex;
+  justify-content: space-between;
+
+  /* 윗부분 경계선 만들기 */
+  border-top: 1px solid var(--grey-light-color);
+  border-bottom: 1px solid var(--grey-light-color);
+}
+
+.channel .metadata {
+  display: flex;
+
+  /* meta 박스 안에 있는 내용들 수직 가운데 정렬 */
+  align-items: center;
+}
+
+.channel .metadata img {
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  border-radius: 50%;
+  margin-right: var(--padding);
+}
+
+.channel .metadata .info {
+  display: flex;
+  flex-direction: column;
+}
+
+.channel .metadata .info .name {
+  font-size: var(--font-medium);
+}
+
+.channel .metadata .info .subcribers {
+  font-size: var(--font-small);
+  color: var(--grey-dark-color);
+}
+
+.channel .subscribe {
+  text-transform: uppercase;
+  color: var(--red-color);
+  font-size: var(--font-medium);
+}
+
+/* UpNext */
+.UpNext {
+  padding: 0 var(--padding);
+}
+
+/* UpNext 바로 뒤에 오는 자식을 꾸며줄때 > 를 쓴다 */
+.UpNext > .title {
+  font-size: var(--font-medium);
+  color: var(--grey-dark-color);
+  margin-bottom: calc(var(--padding) / 2);
+}
+
+.UpNext .item {
+  display: flex;
+  margin-top: var(--padding);
+}
+
+.UpNext .item .img {
+  flex: 1 1 35%;
+  margin-right: var(--padding);
+}
+
+.UpNext .item .img img {
+  width: 100%;
+}
+
+.UpNext .item .info {
+  flex: 1 1 60%;
+}
+
+.UpNext .item .moreBtn {
+  flex: 1 1 5%;
+}
+
+.UpNext .item .info {
+  display: flex;
+  flex-direction: column;
+}
+
+.UpNext .item .info .title {
+  font-size: var(--font-small);
+}
+
+.UpNext .item .info .name,
+.UpNext .item .info .views {
+  font-size: var(--font-micro);
+  color: var(--grey-dark-color);
+}
+
+.infoAndUpNext {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  .infoAndUpNext {
+    flex-direction: row;
+    margin: var(--padding);
+  }
+}
